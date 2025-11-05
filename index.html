@@ -61,7 +61,7 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 100px;
             width: auto;
         }
 
@@ -111,7 +111,10 @@
             display: inline-block;
         }
 
-        .c
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(74, 157, 59, 0.3);
+        }
 
         .hamburger {
             display: none;
@@ -336,7 +339,7 @@
             line-height: 1.8;
         }
 
-        
+        /* Demo Section */
         .demo {
             padding: 6rem 2rem;
             background: white;
@@ -400,6 +403,102 @@
             justify-content: center;
             border-radius: 50%;
             font-weight: bold;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mentor-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 4rem;
+            transition: transform 0.3s;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(74, 157, 59, 0.2);
+        }
+
+        .mentor-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .mentor-card h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .mentor-role {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(74, 157, 59, 0.15);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .team-card h4 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #666;
+            font-size: 0.95rem;
         }
 
         /* CTA Section */
@@ -508,6 +607,10 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
         }
 
         /* Animations */
@@ -581,11 +684,12 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo" onclick="scrollToSection('hero')">
-                <img src="logo.png" alt="Logo">
+                <img src="logo.png" alt="AI Predictive Maintenance Logo">
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#features" onclick="scrollToSection('features')">Features</a></li>
                 <li><a href="#demo" onclick="scrollToSection('demo')">Demo</a></li>
+                <li><a href="#team" onclick="scrollToSection('team')">Team</a></li>
                 <li><a href="#contact" onclick="scrollToSection('cta')">Contact</a></li>
             </ul>
             <a href="#" class="cta-btn" onclick="launchDashboard()">Launch Dashboard →</a>
@@ -711,11 +815,93 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="team-container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Meet the experts behind this innovation</p>
+            
+            <!-- Mentor -->
+            <div class="mentor-card">
+                <div class="mentor-icon">👨‍🏫</div>
+                <h3>Dr. Parag Punarik</h3>
+                <p class="mentor-role">Project Mentor</p>
+            </div>
+
+            <!-- Team Members -->
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">M</div>
+                    <h4>Mohini Pillenwan</h4>
+                    <p class="team-role">Team Member</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">Sa</div>
+                    <h4>Sakshi Narde</h4>
+                    <p class="team-role">Team Member</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">Sg</div>
+                    <h4>Sagar Vinodiya</h4>
+                    <p class="team-role">Team Member</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">St</div>
+                    <h4>Sarthak Mendhe</h4>
+                    <p class="team-role">Team Member</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">R</div>
+                    <h4>Ratnaprabha Joddhar</h4>
+                    <p class="team-role">Team Member</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section class="cta-section" id="cta">
-        <h2>Ready to Prevent Equipment Failures?</h2>
-        <p>Start monitoring your equipment with AI today</p>
-        <a href="#" class="btn-primary" onclick="launchDashboard()" style="background: white; color: var(--primary)">Launch Dashboard →</a>
+        <h2>Get In Touch</h2>
+        <p>Have questions? We'd love to hear from you</p>
+        
+        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+            <form action="https://formsubmit.co/sarthakm.etc22@sbjit.edu.in" method="POST" id="contactForm" style="text-align: left;">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Predictive Maintenance">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_cc" value="mohinip.etc22@sbjit.edu.in,sakshin.etc22@sbjit.edu.in,ratnaj.etc22@sbjit.edu.in,sagarv.etc22@sbjit.edu.in">
+                <input type="text" name="_honey" style="display:none">
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Name</label>
+                    <input type="text" name="name" id="name" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" name="email" id="email" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Subject</label>
+                    <input type="text" name="subject" id="subject" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Message</label>
+                    <textarea name="message" id="message" required rows="5" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'"></textarea>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(74, 157, 59, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    Send Message →
+                </button>
+            </form>
+            
+        
+        <div style="margin-top: 3rem;">
+            <a href="#" class="btn-primary" onclick="launchDashboard()" style="background: white; color: var(--primary)">Or Launch Dashboard →</a>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -723,14 +909,14 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>AI Maintenance</h3>
-                <p>Comparative Analysis of Machine learning algorithms for industrial equipments for Predictive maintenance Intelligent predictive maintenance platform powered by machine learning.</p>
+                <p>Comparative Analysis of Machine learning algorithms for industrial equipments for Predictive maintenance. Intelligent predictive maintenance platform powered by machine learning.</p>
             </div>
             <div class="footer-section">
                 <h3>Product</h3>
                 <ul>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#demo">Demo</a></li>
-                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#team">Team</a></li>
                     <li><a href="#">Documentation</a></li>
                 </ul>
             </div>
@@ -740,7 +926,7 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#cta">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -754,7 +940,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; Predictive Maintenance..</p>
+            <p>&copy; 2024 Predictive Maintenance. All rights reserved.</p>
         </div>
     </footer>
 
@@ -773,7 +959,7 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // Launch dashboard (UPDATE THIS URL LATER)
+        // Launch dashboard
         function launchDashboard() {
             window.open('https://predictive-maintenance-for-industrial-equipments.streamlit.app/', '_blank');
         }
@@ -827,7 +1013,7 @@
         observer.observe(document.querySelector('.stats'));
 
         // Fade in elements on scroll
-        const fadeElements = document.querySelectorAll('.feature-card, .demo-container');
+        const fadeElements = document.querySelectorAll('.feature-card, .demo-container, .team-card, .mentor-card');
         
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
