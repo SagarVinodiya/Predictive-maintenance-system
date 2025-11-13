@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -19,9 +17,14 @@ import re
 import base64
 from io import BytesIO
 # Voice features 
-# Voice features - Browser-based (Cloud compatible)
-import streamlit.components.v1 as components
-VOICE_AVAILABLE = True  # Always true now since we use browser APIs
+try:
+    import speech_recognition as sr
+    import pyttsx3
+    VOICE_AVAILABLE = True
+except ImportError:
+    VOICE_AVAILABLE = False
+
+warnings.filterwarnings('ignore')
 
 # PAGE CONFIG
 st.set_page_config(
@@ -528,107 +531,44 @@ def search_equipment_status(df, equipment_id, id_column='Equipment_ID', predicti
     return result
 
 # EVA VOICE ASSISTANT FUNCTIONS
-def create_voice_input_component():
-    """Create a browser-based voice input component"""
-    voice_html = """
-    <div style="text-align: center; padding: 10px;">
-        <button id="voiceButton" 
-                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                       color: white;
-                       border: none;
-                       padding: 12px 24px;
-                       border-radius: 8px;
-                       cursor: pointer;
-                       font-size: 16px;
-                       box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            🎤 Click to Speak
-        </button>
-        <p id="status" style="margin-top: 10px; color: #666;"></p>
-        <p id="transcript" style="margin-top: 10px; font-weight: bold; color: #333;"></p>
-    </div>
-    
-    <script>
-        const button = document.getElementById('voiceButton');
-        const status = document.getElementById('status');
-        const transcript = document.getElementById('transcript');
+def recognize_speech_from_mic():
+    if not VOICE_AVAILABLE:
+        st.error("Voice recognition not available")
+        return None
         
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        
-        if (!SpeechRecognition) {
-            status.textContent = 'Voice recognition not supported. Try Chrome or Edge.';
-            button.disabled = true;
-            button.style.opacity = '0.5';
-        } else {
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'en-US';
-            recognition.continuous = false;
-            recognition.interimResults = false;
+    r = sr.Recognizer()
+    try:
+        with sr.Microphone() as source:
+            st.info("🎤 EVA is listening...")
+            r.adjust_for_ambient_noise(source, duration=0.5)
+            audio = r.listen(source, timeout=3, phrase_time_limit=8)
             
-            button.onclick = function() {
-                status.textContent = '🎤 Listening...';
-                transcript.textContent = '';
-                recognition.start();
-            };
-            
-            recognition.onresult = function(event) {
-                const speechResult = event.results[0][0].transcript;
-                transcript.textContent = 'You said: ' + speechResult;
-                status.textContent = '✓ Done';
-                window.parent.postMessage({
-                    type: 'streamlit:setComponentValue',
-                    value: speechResult
-                }, '*');
-            };
-            
-            recognition.onerror = function(event) {
-                status.textContent = '❌ Error: ' + event.error;
-            };
-        }
-    </script>
-    """
-    return voice_html
+        user_input = r.recognize_google(audio)
+        st.success(f"You said: '{user_input}'")
+        return user_input.lower()
+    except Exception as e:
+        st.error("I couldn't understand that. Please try again.")
+        return None
 
 def eva_speak(text, voice_gender="female"):
-    """Browser-based text-to-speech"""
+    """EVA's text-to-speech function"""
     if not VOICE_AVAILABLE:
         return
-    
-    try:
-        # Clean text for JavaScript
-        clean_text = text.replace('`', '').replace('\\', '\\\\').replace('\n', ' ')
         
-        tts_html = f"""
-        <script>
-            const text = `{clean_text}`;
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.9;
-            utterance.pitch = 1.0;
-            utterance.volume = 1.0;
+    try:
+        engine = pyttsx3.init()
+        voices = engine.getProperty('voices')
+        
+        if voice_gender.lower() == "female" and len(voices) > 1:
+            engine.setProperty('voice', voices[1].id)
+        else:
+            engine.setProperty('voice', voices[0].id)
             
-            // Wait for voices to load
-            function speakText() {{
-                const voices = window.speechSynthesis.getVoices();
-                if ('{voice_gender}' === 'female') {{
-                    const femaleVoice = voices.find(voice => 
-                        voice.name.includes('Female') || 
-                        voice.name.includes('Samantha') ||
-                        voice.name.includes('Google UK English Female')
-                    );
-                    if (femaleVoice) utterance.voice = femaleVoice;
-                }}
-                window.speechSynthesis.speak(utterance);
-            }}
-            
-            if (window.speechSynthesis.getVoices().length > 0) {{
-                speakText();
-            }} else {{
-                window.speechSynthesis.onvoiceschanged = speakText;
-            }}
-        </script>
-        """
-        components.html(tts_html, height=0)
-    except Exception as e:
-        pass  # Silently fail if TTS not available
+        engine.setProperty('rate', 170)
+        engine.say(text)
+        engine.runAndWait()
+    except:
+        pass
 
 def get_current_time_greeting():
     """Get appropriate greeting based on current time"""
@@ -1304,12 +1244,10 @@ def eva_voice_widget():
     col1, col2 = st.columns([1, 1])
     
     with col1:
-        voice_result = components.html(
-            create_voice_input_component(),
-            height=150,
-        )
-        if voice_result:
-            process_eva_command(voice_result)
+        if st.button("🎤 Voice Command", use_container_width=True, help="Click to speak with EVA"):
+            user_text = recognize_speech_from_mic()
+            if user_text:
+                process_eva_command(user_text)
     
     with col2:
         text_input = st.text_input("💬 Chat with EVA:", placeholder="Try: 'Hello EVA' or 'search equipment E_1'")
