@@ -236,149 +236,6 @@
             }
         }
 
-        /* Process Flow Section - UPDATED TO 2 STEPS */
-        .process-flow {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 4rem;
-        }
-
-        .flow-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
-            position: relative;
-        }
-
-        .flow-container::before {
-            content: '→';
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3rem;
-            color: var(--primary);
-            font-weight: bold;
-            animation: arrowPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes arrowPulse {
-            0%, 100% { opacity: 0.6; transform: translateX(-50%) translateX(0); }
-            50% { opacity: 1; transform: translateX(-50%) translateX(10px); }
-        }
-
-        .flow-step {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .flow-step::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .flow-step:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(74, 157, 59, 0.2);
-        }
-
-        .flow-step:hover::before {
-            transform: scaleX(1);
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0 auto 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .flow-step:hover .step-number {
-            transform: scale(1.1) rotate(360deg);
-        }
-
-        .step-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .flow-step h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .flow-step p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .flow-btn {
-            padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-
-        .flow-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(74, 157, 59, 0.3);
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #e0f2fe;
-            color: #0369a1;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
         /* Stats Section */
         .stats {
             background: var(--dark);
@@ -424,6 +281,20 @@
             background: var(--light);
         }
 
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+
         .features-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -466,152 +337,6 @@
         .feature-card p {
             color: #666;
             line-height: 1.8;
-        }
-
-        /* Data Cleaner Section */
-        .data-cleaner {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-        }
-
-        .cleaner-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cleaner-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .cleaner-demo {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .cleaner-step {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-
-        .cleaner-step:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(74, 157, 59, 0.15);
-        }
-
-        .step-number-small {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .step-content h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .step-content p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .cleaner-visual {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .before-after {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .data-box {
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .data-box.before {
-            background: #fee2e2;
-            border: 2px solid #ef4444;
-        }
-
-        .data-box.after {
-            background: #d1fae5;
-            border: 2px solid #10b981;
-        }
-
-        .data-box h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .data-stat {
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-
-        .data-box.before .data-stat {
-            color: #dc2626;
-        }
-
-        .data-box.after .data-stat {
-            color: #059669;
-        }
-
-        .cleaner-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .cleaner-feature {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .cleaner-feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(74, 157, 59, 0.15);
-        }
-
-        .cleaner-feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .cleaner-feature h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         /* Demo Section */
@@ -841,44 +566,6 @@
             color: rgba(255,255,255,0.6);
         }
 
-        /* Loading Overlay */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            flex-direction: column;
-        }
-
-        .loading-overlay.active {
-            display: flex;
-        }
-
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(74, 157, 59, 0.3);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            color: white;
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-
         /* Responsive */
         @media (max-width: 968px) {
             .nav-links {
@@ -913,15 +600,7 @@
                 flex-direction: column;
             }
 
-            .flow-container {
-                grid-template-columns: 1fr;
-            }
-
-            .flow-container::before {
-                display: none;
-            }
-
-            .demo-container, .cleaner-content {
+            .demo-container {
                 grid-template-columns: 1fr;
             }
 
@@ -932,12 +611,9 @@
             .team-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
-
-            .before-after {
-                grid-template-columns: 1fr;
-            }
         }
 
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -948,6 +624,7 @@
             animation: fadeIn 1s ease forwards;
         }
 
+        /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -1010,14 +687,12 @@
                 <img src="logo.png" alt="AI Predictive Maintenance Logo">
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#process" onclick="scrollToSection('process')">Get Started</a></li>
                 <li><a href="#features" onclick="scrollToSection('features')">Features</a></li>
-                <li><a href="#cleaner" onclick="scrollToSection('cleaner')">Data Cleaner</a></li>
                 <li><a href="#demo" onclick="scrollToSection('demo')">Demo</a></li>
                 <li><a href="#team" onclick="scrollToSection('team')">Team</a></li>
                 <li><a href="#contact" onclick="scrollToSection('cta')">Contact</a></li>
             </ul>
-            <a href="#" class="cta-btn" onclick="goToStep(1)">Start Now →</a>
+            <a href="#" class="cta-btn" onclick="launchDashboard()">Launch Dashboard →</a>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -1032,82 +707,12 @@
             <h1>Comparative Analysis of ML Algorithm for Predictive maintenance of Industrial Equipments</h1>
             <p>Prevent equipment failures before they happen. Reduce downtime by 70%.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn-primary" onclick="goToStep(1)">Get Started</a>
-                <a href="#process" class="btn-secondary" onclick="scrollToSection('process')">Learn More</a>
+                <a href="#" class="btn-primary" onclick="launchDashboard()">Try Live Demo</a>
+                <a href="#features" class="btn-secondary" onclick="scrollToSection('features')">Learn More</a>
             </div>
         </div>
         <div class="scroll-indicator">
             <span></span>
-        </div>
-    </section>
-
-    <!-- Process Flow Section - 2 STEPS ONLY -->
-    <section class="process-flow" id="process">
-        <h2 class="section-title">Simple 2-Step Process</h2>
-        <p class="section-subtitle">From raw data to AI-powered predictions in minutes</p>
-        
-        <div class="flow-container">
-            <!-- Step 1: Data Cleaner -->
-            <div class="flow-step" onclick="goToStep(1)">
-                <div class="step-number">1</div>
-                <div class="step-icon">🧹</div>
-                <h3>Clean Your Data</h3>
-                <p>Upload raw equipment CSV. Our intelligent cleaner automatically removes duplicates, handles missing values, and prepares data for AI analysis.</p>
-                <ul style="text-align: left; color: #666; margin-bottom: 1rem; padding-left: 1.5rem;">
-                    <li>Auto-detect data issues</li>
-                    <li>One-click cleaning</li>
-                    <li>Export ready files</li>
-                    <li>Calculate maintenance triggers</li>
-                </ul>
-                <button class="flow-btn" onclick="event.stopPropagation(); goToStep(1)">
-                    Start Cleaning →
-                </button>
-                <div class="status-badge">⚡ Takes 30 seconds</div>
-            </div>
-
-            <!-- Step 2: Main Dashboard -->
-            <div class="flow-step" onclick="goToStep(2)">
-                <div class="step-number">2</div>
-                <div class="step-icon">🤖</div>
-                <h3>Analyze & Predict</h3>
-                <p>Upload cleaned data to the dashboard. AI trains multiple ML algorithms, generates predictions, and provides equipment search with health status.</p>
-                <ul style="text-align: left; color: #666; margin-bottom: 1rem; padding-left: 1.5rem;">
-                    <li>4 ML algorithms</li>
-                    <li>Auto model comparison</li>
-                    <li>Equipment search (E_1, E_2...)</li>
-                    <li>95% accuracy predictions</li>
-                </ul>
-                <button class="flow-btn" onclick="event.stopPropagation(); goToStep(2)">
-                    Go to Dashboard →
-                </button>
-                <div class="status-badge">🚀 Real-time analysis</div>
-            </div>
-        </div>
-
-        <!-- Quick Start Guide -->
-        <div style="max-width: 800px; margin: 4rem auto; padding: 2rem; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-            <h3 style="text-align: center; color: var(--primary); margin-bottom: 1.5rem; font-size: 1.8rem;">📋 Quick Start Guide</h3>
-            <div style="display: grid; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--light); border-radius: 10px;">
-                    <span style="font-size: 2rem;">1️⃣</span>
-                    <div>
-                        <strong>Start with Data Cleaner</strong>
-                        <p style="margin: 0; color: #666; font-size: 0.95rem;">Upload raw CSV → Clean automatically → Download cleaned file with maintenance analysis</p>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--light); border-radius: 10px;">
-                    <span style="font-size: 2rem;">2️⃣</span>
-                    <div>
-                        <strong>Train AI & Search Equipment</strong>
-                        <p style="margin: 0; color: #666; font-size: 0.95rem;">Upload cleaned file → Train models → Search equipment IDs → Get health predictions</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); border-radius: 10px; border-left: 4px solid #0ea5e9;">
-                <h4 style="color: #0369a1; margin-bottom: 0.5rem;">💡 Pro Tip</h4>
-                <p style="margin: 0; color: #075985;">The Data Cleaner automatically calculates maintenance triggers, so your data is ready for AI training immediately after cleaning!</p>
-            </div>
         </div>
     </section>
 
@@ -1171,114 +776,6 @@
         </div>
     </section>
 
-    <!-- Data Cleaner Section -->
-    <section class="data-cleaner" id="cleaner">
-        <div class="cleaner-container">
-            <h2 class="section-title">Built-in Data Cleaner</h2>
-            <p class="section-subtitle">Professional data preprocessing in one click</p>
-
-            <div class="cleaner-content">
-                <div>
-                    <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">Clean Your Data Instantly</h3>
-                    <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem; line-height: 1.8;">
-                        Our intelligent data cleaner automatically detects and fixes common data quality issues, 
-                        preparing your equipment data for accurate AI predictions.
-                    </p>
-
-                    <div class="cleaner-demo">
-                        <div class="cleaner-step">
-                            <div class="step-number-small">1</div>
-                            <div class="step-content">
-                                <h4>Remove Duplicates</h4>
-                                <p>Automatically detect and eliminate duplicate equipment records</p>
-                            </div>
-                        </div>
-
-                        <div class="cleaner-step">
-                            <div class="step-number-small">2</div>
-                            <div class="step-content">
-                                <h4>Handle Missing Values</h4>
-                                <p>Smart strategies: drop, fill with median/mean, or forward fill</p>
-                            </div>
-                        </div>
-
-                        <div class="cleaner-step">
-                            <div class="step-number-small">3</div>
-                            <div class="step-content">
-                                <h4>Standardize Columns</h4>
-                                <p>Automatic column name formatting for consistency</p>
-                            </div>
-                        </div>
-
-                        <div class="cleaner-step">
-                            <div class="step-number-small">4</div>
-                            <div class="step-content">
-                                <h4>Calculate Maintenance</h4>
-                                <p>Auto-calculate maintenance triggers and failure predictions</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cleaner-visual">
-                    <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">See the Difference</h3>
-                    
-                    <div class="before-after">
-                        <div class="data-box before">
-                            <h4>❌ Before Cleaning</h4>
-                            <div class="data-stat">500</div>
-                            <p>Rows</p>
-                            <div class="data-stat">300</div>
-                            <p>Missing Values</p>
-                            <div class="data-stat">50</div>
-                            <p>Duplicates</p>
-                        </div>
-
-                        <div class="data-box after">
-                            <h4>✅ After Cleaning</h4>
-                            <div class="data-stat">450</div>
-                            <p>Rows</p>
-                            <div class="data-stat">0</div>
-                            <p>Missing Values</p>
-                            <div class="data-stat">0</div>
-                            <p>Duplicates</p>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <a href="#" class="cta-btn" onclick="goToStep(1)">Try Data Cleaner →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cleaner-features">
-                <div class="cleaner-feature">
-                    <div class="cleaner-feature-icon">🔍</div>
-                    <h4>Auto-Detection</h4>
-                    <p>Automatically identifies data quality issues</p>
-                </div>
-
-                <div class="cleaner-feature">
-                    <div class="cleaner-feature-icon">⚡</div>
-                    <h4>One-Click Clean</h4>
-                    <p>Clean your entire dataset with a single button</p>
-                </div>
-
-                <div class="cleaner-feature">
-                    <div class="cleaner-feature-icon">📊</div>
-                    <h4>Visual Reports</h4>
-                    <p>Before/after comparisons with detailed statistics</p>
-                </div>
-
-                <div class="cleaner-feature">
-                    <div class="cleaner-feature-icon">💾</div>
-                    <h4>Export Ready</h4>
-                    <p>Download cleaned data in CSV or Excel format</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Demo Section -->
     <section class="demo" id="demo">
         <div class="demo-container">
@@ -1287,14 +784,13 @@
                 <p>Our AI-powered platform makes predictive maintenance simple and effective.</p>
                 <ul class="demo-features">
                     <li>Upload equipment data in CSV format</li>
-                    <li>Use built-in data cleaner for preprocessing</li>
                     <li>AI automatically analyzes patterns</li>
                     <li>Train multiple ML models instantly</li>
                     <li>Search equipment by ID (e.g., E_1, E_2)</li>
                     <li>Get health status and risk predictions</li>
                     <li>Receive maintenance recommendations</li>
                 </ul>
-                <a href="#" class="cta-btn" onclick="goToStep(1)">Try Live Demo →</a>
+                <a href="#" class="cta-btn" onclick="launchDashboard()">Try Live Demo →</a>
             </div>
             <div>
                 <svg class="demo-image" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
@@ -1370,6 +866,7 @@
         
         <div style="max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
             <form action="https://formsubmit.co/sarthakm.etc22@sbjit.edu.in" method="POST" id="contactForm" style="text-align: left;">
+                <!-- FormSubmit Configuration -->
                 <input type="hidden" name="_subject" value="New Contact Form Submission - Predictive Maintenance">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
@@ -1378,32 +875,32 @@
                 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Name</label>
-                    <input type="text" name="name" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                    <input type="text" name="name" id="name" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
                 </div>
                 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Email</label>
-                    <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                    <input type="email" name="email" id="email" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
                 </div>
                 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Subject</label>
-                    <input type="text" name="subject" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                    <input type="text" name="subject" id="subject" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
                 </div>
                 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; color: var(--dark); font-weight: 600; margin-bottom: 0.5rem;">Message</label>
-                    <textarea name="message" required rows="5" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'"></textarea>
+                    <textarea name="message" id="message" required rows="5" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical; transition: border 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'"></textarea>
                 </div>
                 
                 <button type="submit" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(74, 157, 59, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     Send Message →
                 </button>
             </form>
-        </div>
+            
         
         <div style="margin-top: 3rem;">
-            <a href="#" class="btn-primary" onclick="goToStep(1)" style="background: white; color: var(--primary)">Or Start with Data Cleaner →</a>
+            <a href="#" class="btn-primary" onclick="launchDashboard()" style="background: white; color: var(--primary)">Or Launch Dashboard →</a>
         </div>
     </section>
 
@@ -1417,11 +914,10 @@
             <div class="footer-section">
                 <h3>Product</h3>
                 <ul>
-                    <li><a href="#process">Get Started</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#cleaner">Data Cleaner</a></li>
                     <li><a href="#demo">Demo</a></li>
                     <li><a href="#team">Team</a></li>
+                    <li><a href="#">Documentation</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1448,50 +944,24 @@
         </div>
     </footer>
 
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner"></div>
-        <div class="loading-text">Redirecting...</div>
-    </div>
-
     <script>
-        // Navigation function
-        function goToStep(step) {
-            const overlay = document.getElementById('loadingOverlay');
-            overlay.classList.add('active');
-
-            let url = '';
-            let message = '';
-
-            if (step === 1) {
-                url = 'http://10.100.80.170:8502';
-                message = 'Opening Data Cleaner...';
-            } else if (step === 2) {
-                url = 'http://localhost:8501/';
-                message = 'Opening Main Dashboard...';
-            }
-
-            document.querySelector('.loading-text').textContent = message;
-
-            setTimeout(() => {
-                window.open(url, '_blank');
-                overlay.classList.remove('active');
-            }, 1000);
-        }
-
         // Smooth scroll navigation
         function scrollToSection(id) {
             const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+            element.scrollIntoView({ behavior: 'smooth' });
             
+            // Close mobile menu
             document.getElementById('navLinks').classList.remove('active');
         }
 
         // Toggle mobile menu
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Launch dashboard
+        function launchDashboard() {
+            window.open('https://predictive-maintenance-for-industrial-equipments.streamlit.app/', '_blank');
         }
 
         // Navbar scroll effect
@@ -1543,7 +1013,7 @@
         observer.observe(document.querySelector('.stats'));
 
         // Fade in elements on scroll
-        const fadeElements = document.querySelectorAll('.feature-card, .demo-container, .team-card, .mentor-card, .cleaner-step, .cleaner-feature, .flow-step');
+        const fadeElements = document.querySelectorAll('.feature-card, .demo-container, .team-card, .mentor-card');
         
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
